@@ -67,7 +67,7 @@
           <h1 class="hero-title">
             эффективные решения<br />для вашего бизнеса
           </h1>
-          <button class="order-service" type="button">Заказать услугу</button>
+          <button class="order-service" data-open-modal>Заказать услугу</button>
         </div>
       </section>
 
@@ -436,18 +436,85 @@
           </div>
 
           <!-- Подпишитесь на рассылку -->
-          <div class="subscribe">
-            <b class="call">Подпишитесь на рассылку</b>
+          <form class="subscribe">
+            <label><b class="call">Подпишитесь на рассылку</b>
+            <input type="email" name="mail" placeholder="E-mail">
+          </label>
+
             <button class="subscribe-button" type="button">Подписаться
               <svg class="telegram-icon">
                <use href="./images/symbol-defs.svg#icon-telegram-icon"></use> 
               </svg>
             </button>
-          </div>
+          </form>
         </div>
       </div>
       <!--О разработчиках -->
       <p class="copyright">2020 | Developed by GoIT Students</p>
     </footer>
+
+    <!-- Модалка -->
+    <div class="backdrop is-hidden" data-backdrop>
+      <div class="modal">
+        <form>
+          <b class="call-in-form">Оставьте свои данные, мы вам перезвоним</b>
+          <label class="form-label">
+            <svg class="icon-label">
+             <use href="./images/symbol-defs.svg#icon-person-black"></use> 
+            </svg>
+            <span class="label-name">Имя</span>
+            <input type="text" name="name" class="form-field">
+          </label>
+          <label class="form-label">
+            <svg class="icon-label">
+              <use href="./images/symbol-defs.svg#icon-phone-black"></use>
+            </svg>
+            <span class="label-name">Телефон</span>
+            <input type="tel" name="telephone" class="form-field">
+          </label>
+          <label class="form-label">
+            <svg class="icon-label">
+              <use href="./images/symbol-defs.svg#icon-email-black"></use>
+            </svg>
+            <span class="label-name">Почта</span>
+            <input type="email" name="mail" class="form-field">
+          </label>
+          <textarea class="comment-field" name="comment" rows="6" placeholder="Комментарий"></textarea>
+          <label class="checkbox">
+            <input type="checkbox" name="agreement" />
+            Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a>
+          </label>
+          <button class="send">Отправить</button>
+
+          
+        </form>
+        <button class="close-modal" data-close-modal>
+          <svg class="icon-close">
+           <use href="./images/symbol-defs.svg#icon-close-black"></use> 
+          </svg>
+        </button>
+      </div>
+    </div>
+    </div>
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"),
+      };
+
+      refs.openModalBtn.addEventListener("click", toggleModal);
+      refs.closeModalBtn.addEventListener("click", toggleModal);
+
+      refs.backdrop.addEventListener("click", logBackdropClick);
+
+      function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+      }
+
+      function logBackdropClick() {
+        console.log("Это клик в бекдроп");
+      }
+    </script>
   </body>
 </html>

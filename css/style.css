@@ -10,6 +10,9 @@
   --project-bdr-color: #eeeeee;
   --sec-clients-bdr-color: #afb1b8;
   --footer-bdr-color: rgba(255, 255, 255, 0.1);
+  --backdrop-bg-color: rgba(0, 0, 0, 0.2);
+  --input-bdr-color: rgba(33, 33, 33, 0.2);
+  --form-icon-color: #212121;
   --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*  */
@@ -329,8 +332,9 @@ nav.container {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-/* Кнопка героя */
-.order-service {
+/* Кнопка героя + кнопка формы "отправить" */
+.order-service,
+.send {
   --h: 50px;
   min-width: 200px;
   height: var(--h);
@@ -353,10 +357,13 @@ nav.container {
   transition: box-shadow 250ms var(--time-function);
 }
 .order-service:hover,
-.order-service:focus {
+.order-service:focus,
+.send:hover,
+.send:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 }
-.order-service:active {
+.order-service:active,
+.send:active {
   box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 /*  */
@@ -622,6 +629,7 @@ address {
 .join .list.social {
   padding: 0px 0px;
 }
+/* Подпишитесь на рассылку */
 
 /* Кнопка в футере "Подписаться" */
 .subscribe-button {
@@ -831,4 +839,133 @@ address {
 .project .item:hover .description,
 .project .item:focus .description {
   transform: translateY(0%);
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* Модалка */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--backdrop-bg-color);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 530px;
+  min-height: 580px;
+  padding: 40px;
+
+  border-radius: 4px;
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+.button:hover {
+  background-color: #5313b9;
+}
+/* Кнопка закрытия модалки */
+.close-modal {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+
+  display: flex;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 6px 6px;
+
+  border: 0px;
+  border-radius: 50%;
+  background: var(--primary-white-color);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+}
+.icon-close {
+  display: inline-block;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+}
+/* Форма */
+.call-in-form {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--secondary-text-color);
+  cursor: default;
+}
+.form-label {
+  position: relative;
+  display: block;
+  margin-bottom: 28px;
+}
+.label-name {
+  position: absolute;
+  top: 50%;
+  left: 42px;
+  transform: translateY(-50%);
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: var(--primary-text-color);
+}
+.form-field {
+  display: inline-block;
+  padding-left: 42px;
+  width: 450px;
+  height: 40px;
+  border: 1px solid var(--input-bdr-color);
+  border-radius: 4px;
+}
+.icon-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+
+  fill: var(--form-icon-color);
+}
+.comment-field {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  width: 450px;
+  height: 120px;
+
+  border: 1px solid var(--input-bdr-color);
+  border-radius: 4px;
+
+  resize: none;
+}
+.checkbox {
+  display: inline-block;
+  margin-bottom: 30px;
 }
