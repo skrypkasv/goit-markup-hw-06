@@ -457,23 +457,23 @@
     <div class="backdrop is-hidden" data-backdrop>
       <div class="modal">
         <form>
-          <b class="call-in-form">Оставьте свои данные, мы вам перезвоним</b>
-          <label class="form-label">
-            <svg class="icon-label">
+          <b class="call-of-form">Оставьте свои данные, мы вам перезвоним</b>
+          <label class="label">
+            <svg class="input-icon">
              <use href="./images/symbol-defs.svg#icon-person-black"></use> 
             </svg>
             <span class="label-name">Имя</span>
             <input type="text" name="name" class="form-field">
           </label>
-          <label class="form-label">
-            <svg class="icon-label">
+          <label class="label">
+            <svg class="input-icon">
               <use href="./images/symbol-defs.svg#icon-phone-black"></use>
             </svg>
             <span class="label-name">Телефон</span>
             <input type="tel" name="telephone" class="form-field">
           </label>
-          <label class="form-label">
-            <svg class="icon-label">
+          <label class="label">
+            <svg class="input-icon">
               <use href="./images/symbol-defs.svg#icon-email-black"></use>
             </svg>
             <span class="label-name">Почта</span>
@@ -484,9 +484,7 @@
             <input type="checkbox" name="agreement" />
             Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a>
           </label>
-          <button class="send">Отправить</button>
-
-          
+          <button type="submit" class="send">Отправить</button>
         </form>
         <button class="close-modal" data-close-modal>
           <svg class="icon-close">
@@ -496,7 +494,8 @@
       </div>
     </div>
     </div>
-    <script>
+    <script src="./js/modal.js"></script>
+    <!-- <script>
       const refs = {
         openModalBtn: document.querySelector("[data-open-modal]"),
         closeModalBtn: document.querySelector("[data-close-modal]"),
@@ -515,6 +514,6 @@
       function logBackdropClick() {
         console.log("Это клик в бекдроп");
       }
-    </script>
+    </script> -->
   </body>
 </html>

@@ -908,7 +908,7 @@ address {
   height: 18px;
 }
 /* Форма */
-.call-in-form {
+.call-of-form {
   display: inline-block;
   margin-bottom: 30px;
   font-weight: 700;
@@ -917,7 +917,7 @@ address {
   color: var(--secondary-text-color);
   cursor: default;
 }
-.form-label {
+.label {
   position: relative;
   display: block;
   margin-bottom: 28px;
@@ -941,7 +941,7 @@ address {
   border: 1px solid var(--input-bdr-color);
   border-radius: 4px;
 }
-.icon-label {
+.input-icon {
   position: absolute;
   top: 50%;
   left: 16px;
