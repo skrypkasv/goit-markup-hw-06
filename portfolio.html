@@ -324,19 +324,28 @@
           </div>
 
           <!-- Подпишитесь на рассылку -->
-          <div class="subscribe">
-            <b class="call">Подпишитесь на рассылку</b>
-            <button class="subscribe-button" type="button">
+          <form class="subscribe js-subscribe-form">
+            <label class="subscribe-mail">
+              <b class="call">Подпишитесь на рассылку</b>
+              <input
+                type="email"
+                name="post"
+                class="subscribe-field"
+                placeholder="E-mail"
+              />
+            </label>
+            <button class="subscribe-button" type="submit">
               Подписаться
               <svg class="telegram-icon">
                 <use href="./images/symbol-defs.svg#icon-telegram-icon"></use>
               </svg>
             </button>
-          </div>
+          </form>
         </div>
       </div>
       <!--О разработчиках -->
       <p class="copyright">2020 | Developed by GoIT Students</p>
     </footer>
+    <script src="./js/form.js"></script>
   </body>
 </html>

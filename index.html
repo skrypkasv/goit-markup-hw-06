@@ -515,9 +515,17 @@
             rows="6"
             placeholder="Комментарий"
           ></textarea>
-          <label class="checkbox">
-            <input type="checkbox" name="agreement" />
-            Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a>
+          <label class="checkbox-label">
+            <input
+              class="checkbox invisible"
+              type="checkbox"
+              name="agreement"
+            />
+            <span class="checkbox-icon"></span>
+            <span class="check-text"
+              >Соглашаюсь с рассылкой и принимаю
+              <a href="#">Условия договора</a></span
+            >
           </label>
           <button class="send" type="submit">Отправить</button>
         </form>

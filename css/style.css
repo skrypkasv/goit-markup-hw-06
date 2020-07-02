@@ -80,12 +80,11 @@ body {
   padding: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
+  /* position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
 }
-/* .invisible {
-  margin: 0px;
-  height: 0px;
-  color: transparent;
-} */
 
 .section-title {
   margin-top: 0px;
@@ -876,6 +875,11 @@ address {
 /*  */
 /*  */
 /*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 /* Модалка */
 .backdrop {
   position: fixed;
@@ -937,6 +941,14 @@ address {
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
 }
+/* ↘ Это отсебятина ↙ (в макете не показано, а мне не нравился
+дефолтный квадрат-outline вокруг круглой кнопки) */
+.close-modal:focus {
+  outline: transparent;
+  border: 1px solid var(--accent-color);
+}
+/* ↗ Это отсебятина для удобного заполнения формы клавиатурой ↖ */
+
 .icon-close {
   display: inline-block;
   margin: auto;
@@ -969,7 +981,6 @@ address {
   line-height: 1.14;
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
-  /* background-color: tomato; */
   transition: transform 250ms var(--time-function),
     top 250ms var(--time-function), left 250ms var(--time-function);
 }
@@ -1029,18 +1040,63 @@ address {
   border-radius: 4px;
 
   resize: none;
+
+  transition: border 250ms var(--time-function);
 }
 .comment:focus,
 .comment:not(:placeholder-shown) {
   outline: transparent;
   border: 1px solid var(--accent-color);
 }
-
-.checkbox {
-  display: inline-block;
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* Checkbox */
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 30px;
+  /* outline: 1px solid navy; */
+}
+.checkbox-icon {
+  display: inline-block;
+  margin-right: 8px;
+  width: 15px;
+  height: 15px;
+
+  border: 0.75px solid var(--secondary-text-color);
+  border-radius: 2px;
+
+  /* background-color: tomato; */
+}
+.checkbox:checked + .checkbox-icon {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  background-image: url(../images/check-icon.svg);
+  background-size: contain;
+  background-origin: border-box;
 }
 
-.checkbox a {
+.check-text {
+  color: var(--primary-text-color);
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+.check-text a {
   color: var(--accent-color);
 }
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* ↘ Это отсебятина для удобного заполнения формы клавиатурой ↙
+(в макете не показано состояние фокуса на checkbox)  */
+/* .checkbox:focus + .checkbox-icon {
+  outline: 1px solid var(--accent-color);
+} */
+/* ↗ Это отсебятина для удобного заполнения формы клавиатурой ↖ */
