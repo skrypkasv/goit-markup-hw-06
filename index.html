@@ -455,13 +455,17 @@
           </div>
 
           <!-- Подпишитесь на рассылку -->
-          <form class="subscribe">
-            <label
-              ><b class="call">Подпишитесь на рассылку</b>
-              <input type="email" name="mail" placeholder="E-mail" />
+          <form class="subscribe js-subscribe-form">
+            <label class="subscribe-mail">
+              <b class="call">Подпишитесь на рассылку</b>
+              <input
+                type="email"
+                name="post"
+                class="subscribe-field"
+                placeholder="E-mail"
+              />
             </label>
-
-            <button class="subscribe-button" type="button">
+            <button class="subscribe-button" type="submit">
               Подписаться
               <svg class="telegram-icon">
                 <use href="./images/symbol-defs.svg#icon-telegram-icon"></use>
@@ -477,32 +481,37 @@
     <!-- Модалка -->
     <div class="backdrop is-hidden" data-backdrop>
       <div class="modal">
-        <form>
+        <form class="form js-modal-form">
           <b class="call-of-form">Оставьте свои данные, мы вам перезвоним</b>
           <label class="label">
+            <input type="text" name="name" class="form-field" placeholder=" " />
+            <span class="label-name">Имя</span>
             <svg class="input-icon">
               <use href="./images/symbol-defs.svg#icon-person-black"></use>
             </svg>
-            <span class="label-name">Имя</span>
-            <input type="text" name="name" class="form-field" />
           </label>
           <label class="label">
+            <input type="tel" name="tel" class="form-field" placeholder=" " />
+            <span class="label-name">Телефон</span>
             <svg class="input-icon">
               <use href="./images/symbol-defs.svg#icon-phone-black"></use>
             </svg>
-            <span class="label-name">Телефон</span>
-            <input type="tel" name="telephone" class="form-field" />
           </label>
           <label class="label">
+            <input
+              type="email"
+              name="mail"
+              class="form-field"
+              placeholder=" "
+            />
+            <span class="label-name">Почта</span>
             <svg class="input-icon">
               <use href="./images/symbol-defs.svg#icon-email-black"></use>
             </svg>
-            <span class="label-name">Почта</span>
-            <input type="email" name="mail" class="form-field" />
           </label>
           <textarea
-            class="comment-field"
             name="comment"
+            class="comment"
             rows="6"
             placeholder="Комментарий"
           ></textarea>
@@ -510,7 +519,7 @@
             <input type="checkbox" name="agreement" />
             Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a>
           </label>
-          <button type="submit" class="send">Отправить</button>
+          <button class="send" type="submit">Отправить</button>
         </form>
         <button class="close-modal" data-close-modal>
           <svg class="icon-close">
@@ -520,25 +529,6 @@
       </div>
     </div>
     <script src="./js/modal.js"></script>
-    <!-- <script>
-      const refs = {
-        openModalBtn: document.querySelector("[data-open-modal]"),
-        closeModalBtn: document.querySelector("[data-close-modal]"),
-        backdrop: document.querySelector("[data-backdrop]"),
-      };
-
-      refs.openModalBtn.addEventListener("click", toggleModal);
-      refs.closeModalBtn.addEventListener("click", toggleModal);
-
-      refs.backdrop.addEventListener("click", logBackdropClick);
-
-      function toggleModal() {
-        refs.backdrop.classList.toggle("is-hidden");
-      }
-
-      function logBackdropClick() {
-        console.log("Это клик в бекдроп");
-      }
-    </script> -->
+    <script src="./js/form.js"></script>
   </body>
 </html>

@@ -613,13 +613,15 @@ address {
   /* background-color: aquamarine; */
 }
 .subscribe {
+  display: flex;
+  align-items: flex-end;
   width: 570px;
   /* height: 87px; */
   /* background-color: aquamarine; */
 }
 .call {
   display: block;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   color: var(--primary-white-color);
   font-weight: 700;
   font-size: 14px;
@@ -630,6 +632,30 @@ address {
   padding: 0px 0px;
 }
 /* Подпишитесь на рассылку */
+.subscribe-field {
+  display: inline-block;
+  width: 358px;
+  height: 50px;
+  margin-right: 12px;
+  padding: 15px 16px;
+
+  background-color: var(--footer-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
+}
+
+.subscribe-field:focus,
+.subscribe-field:active {
+  outline: transparent;
+  border: 1px solid var(--accent-color);
+}
 
 /* Кнопка в футере "Подписаться" */
 .subscribe-button {
@@ -860,16 +886,22 @@ address {
   height: 100%;
 
   background-color: var(--backdrop-bg-color);
+
+  opacity: 1;
+  transition: opacity 250ms var(--time-function);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 530px;
   min-height: 580px;
@@ -880,6 +912,10 @@ address {
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
   text-align: center;
+
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform 250ms var(--time-function);
 }
 .button:hover {
   background-color: #5313b9;
@@ -924,6 +960,7 @@ address {
 }
 .label-name {
   position: absolute;
+  display: inline-block;
   top: 50%;
   left: 42px;
   transform: translateY(-50%);
@@ -932,15 +969,36 @@ address {
   line-height: 1.14;
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
+  /* background-color: tomato; */
+  transition: transform 250ms var(--time-function),
+    top 250ms var(--time-function), left 250ms var(--time-function);
 }
+
+.form-field:focus + .label-name,
+.form-field:not(:placeholder-shown) + .label-name {
+  top: -20px;
+  left: 16px;
+  transform: translateY(0);
+  color: var(--accent-color);
+}
+
 .form-field {
   display: inline-block;
   padding-left: 42px;
-  width: 450px;
+  width: 100%;
   height: 40px;
   border: 1px solid var(--input-bdr-color);
   border-radius: 4px;
+
+  transition: border 250ms var(--time-function);
 }
+
+.form-field:focus,
+.form-field:not(:placeholder-shown) {
+  outline: transparent;
+  border: 1px solid var(--accent-color);
+}
+
 .input-icon {
   position: absolute;
   top: 50%;
@@ -952,12 +1010,19 @@ address {
   height: 18px;
 
   fill: var(--form-icon-color);
+  transition: fill 250ms var(--time-function);
 }
-.comment-field {
+
+.form-field:focus ~ .input-icon,
+.form-field:not(:placeholder-shown) ~ .input-icon {
+  fill: var(--accent-color);
+}
+
+.comment {
   display: inline-block;
   margin-bottom: 20px;
   padding: 12px 16px;
-  width: 450px;
+  width: 100%;
   height: 120px;
 
   border: 1px solid var(--input-bdr-color);
@@ -965,7 +1030,17 @@ address {
 
   resize: none;
 }
+.comment:focus,
+.comment:not(:placeholder-shown) {
+  outline: transparent;
+  border: 1px solid var(--accent-color);
+}
+
 .checkbox {
   display: inline-block;
   margin-bottom: 30px;
+}
+
+.checkbox a {
+  color: var(--accent-color);
 }
