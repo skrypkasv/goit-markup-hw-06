@@ -1096,7 +1096,7 @@ address {
 /*  */
 /* ↘ Это отсебятина для удобного заполнения формы клавиатурой ↙
 (в макете не показано состояние фокуса на checkbox)  */
-/* .checkbox:focus + .checkbox-icon {
+.checkbox:focus + .checkbox-icon {
   outline: 1px solid var(--accent-color);
-} */
+}
 /* ↗ Это отсебятина для удобного заполнения формы клавиатурой ↖ */
